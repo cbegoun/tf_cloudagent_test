@@ -5,7 +5,7 @@ variable "location" {
 
 variable "prefix" {
   description = "The prefix which should be used for all resources in this example"
-  default     = "tfc_cloudagent"
+  default     = "cloudagent"
 }
 
 variable "subscription_id" {

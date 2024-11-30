@@ -3,7 +3,7 @@ terraform {
   cloud {
     organization = "test_terraform_cbegoun"
     workspaces {
-      name = "tf_cloudagent_testt"
+      name = "tf_cloudagent_test"
     }
   }
   required_providers {

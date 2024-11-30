@@ -1,6 +1,6 @@
 variable "location" {
   description = "The Azure Region in which all resources in this example should be created."
-  default     = "us-west-2"
+  default     = "westcentralus"
 }
 
 variable "prefix" {

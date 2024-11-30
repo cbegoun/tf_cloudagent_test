@@ -29,7 +29,7 @@ resource "azurerm_network_interface" "tfc_cloudagent_nic" {
   }
 }
 
-resource "azurerm_linux_virtual_machine" "main" {
+resource "azurerm_linux_virtual_machine" "tfc_cloudagent_vm" {
   name                            = "${var.prefix}-vm"
   resource_group_name             = azurerm_resource_group.tfc_cloudagent_rg.name
   location                        = azurerm_resource_group.tfc_cloudagent_rg.location

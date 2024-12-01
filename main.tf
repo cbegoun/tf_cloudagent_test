@@ -41,6 +41,10 @@ resource "azurerm_linux_virtual_machine" "tfc_cloudagent_vm" {
     azurerm_network_interface.tfc_cloudagent_nic.id,
   ]
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
@@ -52,4 +56,13 @@ resource "azurerm_linux_virtual_machine" "tfc_cloudagent_vm" {
     storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
   }
+}
+
+data "azurerm_role_definition" "contributor" {
+  name = "Contributor"
+}
+resource "azurerm_role_assignment" "mi_contributor" {
+  scope = var.subscription_id
+  role_definition_id = "${var.subscription_id}${data.azurerm_role_definition.contributor.id}"
+  principal_id = azurerm_linux_virtual_machine.tfc_cloudagent_vm.identity[0].principal_id
 }

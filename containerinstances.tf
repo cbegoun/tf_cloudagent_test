@@ -3,8 +3,8 @@ resource "azurerm_container_group" "tf_agent_cg" {
   location            = var.location
   resource_group_name = azurerm_resource_group.tf_agent_rg.name
   os_type             = "Linux"
-    ip_address_type = "Private"
-     subnet_ids = azurerm_subnet.internal.id
+  ip_address_type     = "Private"
+  subnet_ids          = [var.subnet_ids["cg"]]
 
   container {
     name   = "ci-${var.sub_prefix}-${var.app_prefix}-${var.app_env}-${var.location}"

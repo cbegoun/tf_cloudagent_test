@@ -2,7 +2,6 @@ resource "azurerm_container_group" "tf_agent_cg" {
   name                = "cg-${var.sub_prefix}-${var.app_prefix}-${var.app_env}-${var.location}"
   location            = var.location
   resource_group_name = azurerm_resource_group.tf_agent_rg.name
-  ip_address_type     = "Private"
   os_type             = "Linux"
 
 

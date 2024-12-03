@@ -28,8 +28,6 @@ resource "azurerm_container_group" "tf_agent_cg" {
     type = "SystemAssigned"
   }
 
-  subnet_ids = azurerm_subnet.internal.address_prefixes
-
   tags = {
     Environment = var.app_env
     Project     = var.app_prefix

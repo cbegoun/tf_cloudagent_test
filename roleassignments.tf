@@ -14,8 +14,8 @@ resource "azurerm_role_assignment" "mi_contributor" {
   principal_id       = azurerm_container_group.tf_agent_cg.identity[0].principal_id
 }
 
-resource "azurerm_role_assignment" "mi_reader" {
-  scope                = data.azurerm_client_config.current.tenant_id
+resource "azurerm_role_assignment" "mi_tenant_owner" {
+  scope                = "/providers/Microsoft.Management/managementGroups/${data.azurerm_client_config.current.tenant_id}"
   role_definition_name = "Owner"
   principal_id         = azurerm_container_group.tf_agent_cg.identity[0].principal_id
 }

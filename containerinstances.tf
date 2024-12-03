@@ -19,6 +19,8 @@ resource "azurerm_container_group" "tf_agent_cg" {
       TFC_AGENT_NAME  = var.TFC_AGENT_NAME
       TFC_AGENT_TOKEN = var.TFC_AGENT_TOKEN
     }
+
+    commands = ["sudo tdnf install ca-certificates", "sudo tdnf install azure-cli"]
   }
   dns_config {
     nameservers = ["1.1.1.2", "1.0.0.2"]

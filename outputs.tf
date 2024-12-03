@@ -9,7 +9,3 @@ output "rg_id" {
 output "container_group_iden" {
   value = azurerm_container_group.tf_agent_cg.identity
 }
-
-output "tenant_id" {
-  value = data.azurerm_client_config.current.tenant_id
-}

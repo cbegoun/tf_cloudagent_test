@@ -1,9 +1,9 @@
 output "rg_name" {
-  value = azurerm_resource_group.tf_agent_rg.rg_name
+  value = azurerm_resource_group.tf_agent_rg.name
 }
 
 output "rg_id" {
-  value = azurerm_resource_group.tf_agent_rg.rg_id
+  value = azurerm_resource_group.tf_agent_rg.id
 }
 
 output "container_group_iden" {

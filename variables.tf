@@ -25,11 +25,11 @@ variable "tags" {
   default     = {}
 }
 
-variable "subnet_ids" {
-  type        = map(string)
-  nullable    = true
-  description = "Subnet IDs"
-}
+#variable "subnet_ids" {
+#  type        = map(string)
+#  nullable    = true
+#  description = "Subnet IDs"
+#}
 
 variable "container_image" {
   type        = string

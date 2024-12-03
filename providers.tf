@@ -1,5 +1,5 @@
 terraform {
-
+  required_version = ">= 1.0.0"
   cloud {
     organization = "test_terraform_cbegoun"
     workspaces {
@@ -9,8 +9,9 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.107"
+      version = "~> 3.25.0"
     }
+
   }
 }
 

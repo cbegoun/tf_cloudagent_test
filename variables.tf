@@ -3,22 +3,54 @@ variable "location" {
   default     = "westcentralus"
 }
 
-variable "prefix" {
-  description = "The prefix which should be used for all resources in this example"
-  default     = "cloudagent"
-}
-
-variable "subscription_id" {
-  description = "The subscription id in which all resources in this example should be created."
-}
-
-variable "ADMIN_USERNAME" {
-  description = "Linux VM admin username"
+variable "app_env" {
   type        = string
+  nullable    = false
+  description = "The env name: dev, qa, test, or prod"
+}
+variable "app_prefix" {
+  type        = string
+  nullable    = false
+  description = "3 or 4 character mnemonic for application"
 }
 
-variable "ADMIN_PASSWORD" {
-  description = "Linux VM admin password"
+variable "sub_prefix" {
   type        = string
-  sensitive   = true
+  nullable    = false
+  description = "The 3 or 4 character mnemonic for this subscription"
+}
+variable "tags" {
+  description = "tags to be applied to resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "subnet_ids" {
+  type        = map(string)
+  nullable    = true
+  description = "Subnet IDs"
+}
+
+variable "container_image" {
+  type        = string
+  nullable    = false
+  description = "the image to use for the container"
+}
+
+variable "TFC_AGENT_NAME" {
+  type        = string
+  nullable    = false
+  description = "name of TFC agent"
+}
+
+variable "TFC_AGENT_TOKEN" {
+  type        = string
+  nullable    = false
+  description = "The token for the TFC agent"
+}
+
+variable "subscription_ids" {
+  type        = map(string)
+  nullable    = false
+  description = "the subscription ids"
 }
